@@ -10,4 +10,4 @@ import addClasses from './utils/ClassAdd.js';
 
 ### License
 
-Do what you want, but [thunk about the omen!](https://www.youtube.com/watch?v=b-_wE0mJU5Y)
+Do what you want, but [think about the omen!](https://www.youtube.com/watch?v=b-_wE0mJU5Y)
