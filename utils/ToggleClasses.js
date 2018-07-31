@@ -12,11 +12,11 @@ export default function($element, className) {
     const classes = $element.className.split(' ');
     const existingIndex = classes.indexOf(className);
 
-    if (existingIndex >= 0)
+    if (existingIndex >= 0) {
       classes.splice(existingIndex, 1);
-    else
+    } else {
       classes.push(className);
-
-    $element.className = classes.join(' ');
+      $element.className = classes.join(' ');
+    }
   }
 }
