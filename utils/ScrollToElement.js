@@ -8,9 +8,7 @@ import getelementYPos   from './getelementYPos.js';
  * @param  {Boolean} isOption [checks if element is <option>]
  * @return {Function} Scroll!
  */
-export default function(element, duration, isOption) {
-  const dur = duration ? duration : 300;
-
+export default function(element, duration = 300, isOption) {
   // check if <option> or <a>
   const target = isOption ? element.value : element.getAttribute('href');
 
@@ -20,8 +18,8 @@ export default function(element, duration, isOption) {
   const elementY = getelementYPos(target) - offset;
 
   // If element is close to page's bottom then window will scroll only to some position above the element.
-  var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY;
-  var diff = targetY - startingY;
+  let targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY;
+  let diff = targetY - startingY;
 
   // Easing function: easeInOutCubic
   // From: https://gist.github.com/gre/1650294
@@ -36,7 +34,7 @@ export default function(element, duration, isOption) {
     // Elapsed miliseconds since start of scrolling.
     const time = timestamp - start;
     // Get percent of completion in range [0, 1].
-    let percent = Math.min(time / dur, 1);
+    let percent = Math.min(time / duration, 1);
 
     // Apply the easing.
     // It can cause bad-looking slow frames in browser performance tool, so be careful.
@@ -45,7 +43,7 @@ export default function(element, duration, isOption) {
     window.scrollTo(0, startingY + diff * percent);
 
     // Proceed with animation as long as we wanted it to.
-    if (time < dur) {
+    if (time < duration) {
       window.requestAnimationFrame(step);
     }
   });
