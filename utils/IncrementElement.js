@@ -13,7 +13,7 @@ export default function(elem, style, value) {
     setTimeout(function() {
       from++;
 
-      if (from < value) {
+      if (from <= value) {
         elem.style[style] = from + '%';
         increment();
       }

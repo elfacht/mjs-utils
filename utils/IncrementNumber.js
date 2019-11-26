@@ -12,7 +12,7 @@ export default function(value, target) {
     setTimeout(function() {
       from++;
 
-      if (from < value) {
+      if (from <= value) {
         target.innerHTML = from;
         increment();
       }
